@@ -1,201 +1,141 @@
-$(window).load(function(){
-	$('.loading').fadeOut('fast');
-	$('.container').fadeIn('fast');
-});
-$('document').ready(function(){
-		var vw;
-		$(window).resize(function(){
-			 vw = $(window).width()/2;
-			$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
-			$('#b11').animate({top:240, left: vw-350},500);
-			$('#b22').animate({top:240, left: vw-250},500);
-			$('#b33').animate({top:240, left: vw-150},500);
-			$('#b44').animate({top:240, left: vw-50},500);
-			$('#b55').animate({top:240, left: vw+50},500);
-			$('#b66').animate({top:240, left: vw+150},500);
-			$('#b77').animate({top:240, left: vw+250},500);
-		});
+const app=document.getElementById('app');
+const music=document.getElementById('bgMusic');
+let btn=document.getElementById('actionBtn');
+let step=0;
 
-	$('#turn_on').click(function(){
-		$('#bulb_yellow').addClass('bulb-glow-yellow');
-		$('#bulb_red').addClass('bulb-glow-red');
-		$('#bulb_blue').addClass('bulb-glow-blue');
-		$('#bulb_green').addClass('bulb-glow-green');
-		$('#bulb_pink').addClass('bulb-glow-pink');
-		$('#bulb_orange').addClass('bulb-glow-orange');
-		$('body').addClass('peach');
-		$(this).fadeOut('slow').delay(5000).promise().done(function(){
-			$('#play').fadeIn('slow');
-		});
-	});
-	$('#play').click(function(){
-		var audio = $('.song')[0];
-        audio.play();
-        $('#bulb_yellow').addClass('bulb-glow-yellow-after');
-		$('#bulb_red').addClass('bulb-glow-red-after');
-		$('#bulb_blue').addClass('bulb-glow-blue-after');
-		$('#bulb_green').addClass('bulb-glow-green-after');
-		$('#bulb_pink').addClass('bulb-glow-pink-after');
-		$('#bulb_orange').addClass('bulb-glow-orange-after');
-		$('body').css('backgroud-color','#FFF');
-		$('body').addClass('peach-after');
-		$(this).fadeOut('slow').delay(6000).promise().done(function(){
-			$('#bannar_coming').fadeIn('slow');
-		});
-	});
+const messages=`Dear Moon,
 
-	$('#bannar_coming').click(function(){
-		$('.bannar').addClass('bannar-come');
-		$(this).fadeOut('slow').delay(6000).promise().done(function(){
-			$('#balloons_flying').fadeIn('slow');
-		});
-	});
+This is my first open letter to you.
+Please accept the love wrung from the deepest chamber of my heart.
 
-	function loopOne() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
-		$('#b1').animate({left:randleft,bottom:randtop},10000,function(){
-			loopOne();
-		});
-	}
-	function loopTwo() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
-		$('#b2').animate({left:randleft,bottom:randtop},10000,function(){
-			loopTwo();
-		});
-	}
-	function loopThree() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
-		$('#b3').animate({left:randleft,bottom:randtop},10000,function(){
-			loopThree();
-		});
-	}
-	function loopFour() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
-		$('#b4').animate({left:randleft,bottom:randtop},10000,function(){
-			loopFour();
-		});
-	}
-	function loopFive() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
-		$('#b5').animate({left:randleft,bottom:randtop},10000,function(){
-			loopFive();
-		});
-	}
+You are a lone star, far away-
+Beyond my reach, beyond my right to touch.
+The moon is beautiful only in the distant sky;
+If one tries to touch it, it would lose its purity.
 
-	function loopSix() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
-		$('#b6').animate({left:randleft,bottom:randtop},10000,function(){
-			loopSix();
-		});
-	}
-	function loopSeven() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
-		$('#b7').animate({left:randleft,bottom:randtop},10000,function(){
-			loopSeven();
-		});
-	}
+Yet, dear Moon, do you know-
+About 384,400 kilometers away from you,
+Another moon has entered my life.
+Unlike you, she is not distant;
+She is very close to me.
+One I can touch if I wish,
+One I can tell all the secrets of my heart-
+While gazing at the night sky.
 
-	$('#balloons_flying').click(function(){
-		$('.balloon-border').animate({top:-500},8000);
-		$('#b1,#b4,#b5,#b7').addClass('balloons-rotate-behaviour-one');
-		$('#b2,#b3,#b6').addClass('balloons-rotate-behaviour-two');
-		// $('#b3').addClass('balloons-rotate-behaviour-two');
-		// $('#b4').addClass('balloons-rotate-behaviour-one');
-		// $('#b5').addClass('balloons-rotate-behaviour-one');
-		// $('#b6').addClass('balloons-rotate-behaviour-two');
-		// $('#b7').addClass('balloons-rotate-behaviour-one');
-		loopOne();
-		loopTwo();
-		loopThree();
-		loopFour();
-		loopFive();
-		loopSix();
-		loopSeven();
-		
-		$(this).fadeOut('slow').delay(5000).promise().done(function(){
-			$('#cake_fadein').fadeIn('slow');
-		});
-	});	
+You know, the two of us look at you and share stories.
+Sometimes it feels as if you blush-
+Hiding yourself behind the clouds.
+I rather like this sulking of yours.
 
-	$('#cake_fadein').click(function(){
-		$('.cake').fadeIn('slow');
-		$(this).fadeOut('slow').delay(3000).promise().done(function(){
-			$('#light_candle').fadeIn('slow');
-		});
-	});
+She, too, sometimes sulks
+And hides herself from me.
+But just as you return after your sulk
+And fill the night with light,
+She also returns
+And illuminates my life anew.
 
-	$('#light_candle').click(function(){
-		$('.fuego').fadeIn('slow');
-		$(this).fadeOut('slow').promise().done(function(){
-			$('#wish_message').fadeIn('slow');
-		});
-	});
+Sometimes marks appear on your face-
+Which, of course, are not your fault.
+Who, after all, is more perfect than you?
+Yet she is not inferior to you in any way.
 
-		
-	$('#wish_message').click(function(){
-		 vw = $(window).width()/2;
+Dear Moon,
+From that distant sky, pray
+For my closest moon.
+Pray for our love.
+Pray that-
+For a long time, together,
+Hand in hand, head on shoulder,
+We may keep watching you
+From this very distance of 384,400 kilometers.
 
-		$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
-		$('#b1').attr('id','b11');
-		$('#b2').attr('id','b22')
-		$('#b3').attr('id','b33')
-		$('#b4').attr('id','b44')
-		$('#b5').attr('id','b55')
-		$('#b6').attr('id','b66')
-		$('#b7').attr('id','b77')
-		$('#b11').animate({top:240, left: vw-350},500);
-		$('#b22').animate({top:240, left: vw-250},500);
-		$('#b33').animate({top:240, left: vw-150},500);
-		$('#b44').animate({top:240, left: vw-50},500);
-		$('#b55').animate({top:240, left: vw+50},500);
-		$('#b66').animate({top:240, left: vw+150},500);
-		$('#b77').animate({top:240, left: vw+250},500);
-		$('.balloons').css('opacity','0.9');
-		$('.balloons h2').fadeIn(3000);
-		$(this).fadeOut('slow').delay(3000).promise().done(function(){
-			$('#story').fadeIn('slow');
-		});
-	});
-	
-	$('#story').click(function(){
-		$(this).fadeOut('slow');
-		$('.cake').fadeOut('fast').promise().done(function(){
-			$('.message').fadeIn('slow');
-		});
-		
-		var i;
+Keep all the stars around you
+Far away from my moon.
 
-		function msgLoop (i) {
-			$("p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
-			i=i+1;
-			$("p:nth-child("+i+")").fadeIn('slow').delay(1000);
-			if(i==50){
-				$("p:nth-child(49)").fadeOut('slow').promise().done(function () {
-					$('.cake').fadeIn('fast');
-				});
-				
-			}
-			else{
-				msgLoop(i);
-			}			
+Amidst thousands of stars,
+Stay well.
 
-		});
-			// body...
-		}
-		
-		msgLoop(0);
-		
-	});
-});
+Yours sincerely,
+Your admirer
+Shihab`.split('\n');
 
+function next(){
+  step++;
 
+  if(step===1){
+    btn.innerText="Welcome to the star's";
+    app.classList.add('sky');
+  }
 
+  if(step===2){
+    createStars();
+    btn.innerText="Lets play music";
+  }
 
-//alert('hello');
+  if(step===3){
+    music.play();
+    setTimeout(()=>{
+      music.pause();
+      app.innerHTML='<button id="actionBtn">Welcome to Moon</button>';
+      btn=document.getElementById('actionBtn');
+      btn.onclick=next;
+    },10000);
+  }
+
+  if(step===4){
+    showMoon();
+  }
+
+  if(step===5){
+    showMessages();
+  }
+}
+
+btn.onclick=next;
+
+function createStars(){
+  for(let i=0;i<120;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    s.style.top=Math.random()*100+'%';
+    s.style.left=Math.random()*100+'%';
+    app.appendChild(s);
+  }
+}
+
+function showMoon(){
+  app.innerHTML='';
+  const img=document.createElement('img');
+  img.src='Moon1.png';
+  img.className='moon';
+  app.appendChild(img);
+  const b=document.createElement('button');
+  b.innerText='See messages';
+  b.onclick=next;
+  app.appendChild(b);
+}
+
+function showMessages(){
+  const box=document.createElement('div');
+  box.id='messageBox';
+  app.appendChild(box);
+  let i=0;
+  const interval=setInterval(()=>{
+    if(i>=messages.length){
+      clearInterval(interval);
+      showFinalMoon();
+      return;
+    }
+    box.innerText=messages[i++];
+    box.style.opacity=1;
+    setTimeout(()=>box.style.opacity=0,2200);
+  },2600);
+}
+
+function showFinalMoon(){
+  app.innerHTML='';
+  const img=document.createElement('img');
+  img.src='Moon2.png';
+  img.className='fullImage';
+  app.appendChild(img);
+}
